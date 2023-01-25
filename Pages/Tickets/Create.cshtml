@@ -1,0 +1,63 @@
+﻿@page
+@model Help_Desk_new.Pages.Tickets.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create Ticket</h1>    
+<p><img src="~/Images/Helpdesk.webp" align="middle" width="200" height="150" /></p>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Ticket.Title" class="control-label"></label>
+                <input asp-for="Ticket.Title" class="form-control" />
+                <span asp-validation-for="Ticket.Title" class="text-danger"></span>         
+            </div>
+            <div class="form-group">
+                <label asp-for="Ticket.EmployeeName" class="control-label"></label>
+                <input asp-for="Ticket.EmployeeName" class="form-control" />
+                <span asp-validation-for="Ticket.EmployeeName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ticket.Importance" class="control-label"></label>
+                <input asp-for="Ticket.Importance" class="form-control" />
+                <span asp-validation-for="Ticket.Importance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ticket.Dateissued" class="control-label"></label>
+                <input asp-for="Ticket.Dateissued" class="form-control" />
+                <span asp-validation-for="Ticket.Dateissued" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ticket.Issue" class="control-label"></label>
+                <textarea asp-for="Ticket.Issue" class="form-control"></textarea>
+                <span asp-validation-for="Ticket.Issue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ticket.SignOffdate" class="control-label"></label>
+                <input asp-for="Ticket.SignOffdate" class="form-control" />
+                <span asp-validation-for="Ticket.SignOffdate" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Ticket.isActive" /> @Html.DisplayNameFor(model => model.Ticket.isActive)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
